@@ -1,7 +1,11 @@
-﻿// Include the namespaces (code libraries) you need below.
+﻿// Current to do: add fence collision, add border collision, add warp pipe teleport, add timer, add 
+
+// Include the namespaces (code libraries) you need below.
 using System;
+using System.Drawing;
 using System.IO;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -14,13 +18,17 @@ namespace MohawkGame2D
         Color PipeBorder = new Color("#58308d"); //pipe border colour
         Color GoldenPipe = new Color("#ebb81e"); //Victory Pipe Colour
         Color GPipeBorder = new Color("#b68a05"); //victory pipe border
-        Color FrogBodyLight = new Color("#74bb1f"); //Frog player body colour light
-        Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
-        Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
+        // Color FrogBodyLight = new Color("#74bb1f"); //Frog player body colour light
+        // Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
+        // Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
 
         Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
         Vector2 playerPosition = new Vector2(50, 50);
         float playerSpeed = 100;
+        Vector2 size;
+        Vector2 velocity;
+        bool hasHitScreenEdge;
+
 
         public void Setup()
         {
@@ -122,23 +130,62 @@ namespace MohawkGame2D
 
             void HandlePlayerMovement()
             {
-                if (Input.IsKeyboardKeyDown(KeyboardInput.D))
+                if (Input.IsKeyboardKeyDown(KeyboardInput.D)|| Input.IsKeyboardKeyDown(KeyboardInput.Right))
                 {
                     playerPosition.X += Time.DeltaTime * playerSpeed;
                 }
-                if (Input.IsKeyboardKeyDown(KeyboardInput.A))
+                if (Input.IsKeyboardKeyDown(KeyboardInput.A)|| Input.IsKeyboardKeyDown(KeyboardInput.Left))
                 {
                     playerPosition.X -= Time.DeltaTime * playerSpeed;
                 }
-                if (Input.IsKeyboardKeyDown(KeyboardInput.S))
+                if (Input.IsKeyboardKeyDown(KeyboardInput.S)|| Input.IsKeyboardKeyDown(KeyboardInput.Down))
                 {
                     playerPosition.Y += Time.DeltaTime * playerSpeed;
                 }
-                if (Input.IsKeyboardKeyDown(KeyboardInput.W))
+                if (Input.IsKeyboardKeyDown(KeyboardInput.W)|| Input.IsKeyboardKeyDown(KeyboardInput.Up))
                 {
                     playerPosition.Y -= Time.DeltaTime * playerSpeed;
                 }
             }
+            playerPosition += velocity * Time.DeltaTime;
+
+            bool isCollideLeft = playerPosition.X <= 0;
+            bool isCollideRight = playerPosition.X >= Window.Width;
+            bool isCollideTop = playerPosition.Y <= 0;
+            bool isCollideBottom = playerPosition.Y >= Window.Height;
+            hasHitScreenEdge = isCollideLeft || isCollideRight || isCollideTop || isCollideBottom;
+            if (hasHitScreenEdge)
+            {
+                // Horizontal negation
+                if (isCollideLeft || isCollideRight)
+                    velocity.X = -velocity.X;
+
+                //veritcal negation
+                if (isCollideTop || isCollideBottom)
+                    velocity.Y = -velocity.Y;
+
+                // Constrain to left
+                if (isCollideLeft)
+                    playerPosition.X = 0;
+                // Constrain to Right
+                if (isCollideRight)
+                    playerPosition.X = Window.Width;
+                // Constrain to Top
+                if (isCollideTop)
+                    playerPosition.Y = 0;
+                // Constrain to Bottom
+                if (isCollideBottom)
+                    playerPosition.Y = Window.Height;
+
+            }
+
+            bool hitScreenEdge()
+                {
+                bool hitScreenEdge = hasHitScreenEdge;
+                hasHitScreenEdge = false;
+                return hitScreenEdge;
+            }
+
         }
          
     }
