@@ -1,5 +1,6 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using System;
+using System.IO;
 using System.Numerics;
 
 // The namespace your code is in.
@@ -17,15 +18,22 @@ namespace MohawkGame2D
         Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
         Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
 
+        Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
+
+        float playerSpeed = 100;
+
         public void Setup()
         {
             Window.SetTitle("Warp Pipe Dream");
             Window.SetSize(400, 400);
+
+            Console.WriteLine(Directory.GetCurrentDirectory());
         }
 
         public void Update()
         {
             Window.ClearBackground(Color.OffWhite);
+            PlayerMovement();
 
             //can't change the background colour the my grass green variable so big square over top of it
             Draw.FillColor = GrassGreen;
@@ -111,39 +119,66 @@ namespace MohawkGame2D
             Draw.Rectangle(50, 350, 5, 50);
             Draw.Rectangle(250, 350, 5, 50);
 
-            // Draw Frog player
-            Draw.FillColor = FrogBodyLight;
-            Draw.LineColor = FrogBodyLight;
-            Draw.Circle(115, 85, 5);
-            Draw.Circle(85, 85, 5);
+            Graphics.Draw(Frog, 0, 0);
 
-            Draw.FillColor = Color.White;
-            Draw.LineColor = Color.White;
-            Draw.Circle(115, 85, 3);
-            Draw.Circle(85, 85, 3);
+            // Draw Frog player (Implementing another way)
+            {
+/*                Draw.FillColor = FrogBodyLight;
+                Draw.LineColor = FrogBodyLight;
+                Draw.Circle(115, 85, 5);
+                Draw.Circle(85, 85, 5);
 
-            Draw.FillColor = Color.Black;
-            Draw.LineColor = Color.Black;
-            Draw.Circle(115, 85, 2);
-            Draw.Circle(85, 85, 2);
+                Draw.FillColor = Color.White;
+                Draw.LineColor = Color.White;
+                Draw.Circle(115, 85, 3);
+                Draw.Circle(85, 85, 3);
 
-            Draw.FillColor = FrogBodyLight;
-            Draw.LineColor = FrogBodyLight;
-            Draw.Circle(100, 100, 15);
+                Draw.FillColor = Color.Black;
+                Draw.LineColor = Color.Black;
+                Draw.Circle(115, 85, 2);
+                Draw.Circle(85, 85, 2);
 
-            Draw.FillColor = FrogBodyDark;
-            Draw.LineColor = FrogBodyDark;
-            Draw.Arc(100, 100, 40, 40, -180, -360);
+                Draw.FillColor = FrogBodyLight;
+                Draw.LineColor = FrogBodyLight;
+                Draw.Circle(100, 100, 15);
 
-            Draw.LineColor = Color.Black;
-            Draw.LineSize = 3;
-            Draw.Line(116, 100, 84, 100);
+                Draw.FillColor = FrogBodyDark;
+                Draw.LineColor = FrogBodyDark;
+                Draw.Arc(100, 100, 40, 40, -180, -360);
 
-            Draw.FillColor = Frogcheeks;
-            Draw.LineColor = Frogcheeks;
-            Draw.Circle(115, 100, 3);
-            Draw.Circle(85, 100, 3);
+                Draw.LineColor = Color.Black;
+                Draw.LineSize = 3;
+                Draw.Line(116, 100, 84, 100);
 
+                Draw.FillColor = Frogcheeks;
+                Draw.LineColor = Frogcheeks;
+                Draw.Circle(115, 100, 3);
+                Draw.Circle(85, 100, 3);*/
+
+            }
+
+            void PlayerMovement();
+
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Right))
+            {
+                Frog.X += Time.DeltaTime * playerSpeed;
+            }
+
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Left))
+
+            {
+                Frog.X -= Time.DeltaTime * playerSpeed;
+            }
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Up))
+            {
+                Frog.X += Time.DeltaTime * playerSpeed;
+            }
+
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Down))
+
+            {
+                Frog.X -= Time.DeltaTime * playerSpeed;
+            }
         }
     }
 
