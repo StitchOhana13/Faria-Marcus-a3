@@ -19,21 +19,19 @@ namespace MohawkGame2D
         Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
 
         Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
-
+        Vector2 playerPosition = new Vector2(50, 50);
         float playerSpeed = 100;
 
         public void Setup()
         {
             Window.SetTitle("Warp Pipe Dream");
             Window.SetSize(400, 400);
-
-            Console.WriteLine(Directory.GetCurrentDirectory());
         }
 
         public void Update()
         {
             Window.ClearBackground(Color.OffWhite);
-            PlayerMovement();
+            HandlePlayerMovement();
 
             //can't change the background colour the my grass green variable so big square over top of it
             Draw.FillColor = GrassGreen;
@@ -119,67 +117,30 @@ namespace MohawkGame2D
             Draw.Rectangle(50, 350, 5, 50);
             Draw.Rectangle(250, 350, 5, 50);
 
-            Graphics.Draw(Frog, 0, 0);
+            // Draw Frog
+            Graphics.Draw(Frog, playerPosition.X, playerPosition.Y);
 
-            // Draw Frog player (Implementing another way)
+            void HandlePlayerMovement()
             {
-/*                Draw.FillColor = FrogBodyLight;
-                Draw.LineColor = FrogBodyLight;
-                Draw.Circle(115, 85, 5);
-                Draw.Circle(85, 85, 5);
-
-                Draw.FillColor = Color.White;
-                Draw.LineColor = Color.White;
-                Draw.Circle(115, 85, 3);
-                Draw.Circle(85, 85, 3);
-
-                Draw.FillColor = Color.Black;
-                Draw.LineColor = Color.Black;
-                Draw.Circle(115, 85, 2);
-                Draw.Circle(85, 85, 2);
-
-                Draw.FillColor = FrogBodyLight;
-                Draw.LineColor = FrogBodyLight;
-                Draw.Circle(100, 100, 15);
-
-                Draw.FillColor = FrogBodyDark;
-                Draw.LineColor = FrogBodyDark;
-                Draw.Arc(100, 100, 40, 40, -180, -360);
-
-                Draw.LineColor = Color.Black;
-                Draw.LineSize = 3;
-                Draw.Line(116, 100, 84, 100);
-
-                Draw.FillColor = Frogcheeks;
-                Draw.LineColor = Frogcheeks;
-                Draw.Circle(115, 100, 3);
-                Draw.Circle(85, 100, 3);*/
-
-            }
-
-            void PlayerMovement();
-
-            if (Input.IsKeyboardKeyDown(KeyboardInput.Right))
-            {
-                Frog.X += Time.DeltaTime * playerSpeed;
-            }
-
-            if (Input.IsKeyboardKeyDown(KeyboardInput.Left))
-
-            {
-                Frog.X -= Time.DeltaTime * playerSpeed;
-            }
-            if (Input.IsKeyboardKeyDown(KeyboardInput.Up))
-            {
-                Frog.X += Time.DeltaTime * playerSpeed;
-            }
-
-            if (Input.IsKeyboardKeyDown(KeyboardInput.Down))
-
-            {
-                Frog.X -= Time.DeltaTime * playerSpeed;
+                if (Input.IsKeyboardKeyDown(KeyboardInput.D))
+                {
+                    playerPosition.X += Time.DeltaTime * playerSpeed;
+                }
+                if (Input.IsKeyboardKeyDown(KeyboardInput.A))
+                {
+                    playerPosition.X -= Time.DeltaTime * playerSpeed;
+                }
+                if (Input.IsKeyboardKeyDown(KeyboardInput.S))
+                {
+                    playerPosition.Y += Time.DeltaTime * playerSpeed;
+                }
+                if (Input.IsKeyboardKeyDown(KeyboardInput.W))
+                {
+                    playerPosition.Y -= Time.DeltaTime * playerSpeed;
+                }
             }
         }
+         
     }
 
 }
