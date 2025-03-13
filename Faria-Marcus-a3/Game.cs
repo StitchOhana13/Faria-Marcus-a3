@@ -1,4 +1,4 @@
-﻿// Current to do: add fence collision, add border collision, add warp pipe teleport, add timer, add 
+﻿// Current to do: add fence collision, add warp pipe teleport, add timer, add victory screen
 
 // Include the namespaces (code libraries) you need below.
 using System;
@@ -40,6 +40,7 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.OffWhite);
             HandlePlayerMovement();
+            
 
             //can't change the background colour the my grass green variable so big square over top of it
             Draw.FillColor = GrassGreen;
@@ -47,41 +48,43 @@ namespace MohawkGame2D
             Draw.Square(0, 0, 400);
 
             // "Warp Pipes"
-            Draw.FillColor = PurplePipes;
-            Draw.LineColor = PipeBorder;
-            Draw.LineSize = 5;
-            Draw.Circle(25, 75, 25);
-            Draw.Circle(175, 25, 25);
-            Draw.Circle(325, 25, 25);
-            Draw.Circle(375, 25, 25);
-            Draw.Circle(175, 75, 25);
-            Draw.Circle(225, 75, 25);
-            Draw.Circle(275, 75, 25);
-            Draw.Circle(25, 125, 25);
-            Draw.Circle(75, 125, 25);
-            Draw.Circle(125, 125, 25);
-            Draw.Circle(275, 125, 25);
-            Draw.Circle(375, 125, 25);
-            Draw.Circle(75, 175, 25);
-            Draw.Circle(325, 175, 25);
-            Draw.Circle(375, 175, 25);
-            Draw.Circle(25, 225, 25);
-            Draw.Circle(75, 225, 25);
-            Draw.Circle(25, 225, 25);
-            Draw.Circle(25, 275, 25);
-            Draw.Circle(125, 275, 25);
-            Draw.Circle(275, 275, 25);
-            Draw.Circle(325, 275, 25);
-            Draw.Circle(375, 275, 25);
-            Draw.Circle(125, 325, 25);
-            Draw.Circle(175, 325, 25);
-            Draw.Circle(225, 325, 25);
-            Draw.Circle(375, 325, 25);
-            Draw.Circle(25, 375, 25);
-            Draw.Circle(75, 375, 25);
-            Draw.Circle(275, 375, 25);
-            Draw.Circle(200, 125, 25);
-            Draw.Circle(200, 275, 25);
+            {
+                Draw.FillColor = PurplePipes;
+                Draw.LineColor = PipeBorder;
+                Draw.LineSize = 5;
+                Draw.Circle(25, 75, 25);
+                Draw.Circle(175, 25, 25);
+                Draw.Circle(325, 25, 25);
+                Draw.Circle(375, 25, 25);
+                Draw.Circle(175, 75, 25);
+                Draw.Circle(225, 75, 25);
+                Draw.Circle(275, 75, 25);
+                Draw.Circle(25, 125, 25);
+                Draw.Circle(75, 125, 25);
+                Draw.Circle(125, 125, 25);
+                Draw.Circle(275, 125, 25);
+                Draw.Circle(375, 125, 25);
+                Draw.Circle(75, 175, 25);
+                Draw.Circle(325, 175, 25);
+                Draw.Circle(375, 175, 25);
+                Draw.Circle(25, 225, 25);
+                Draw.Circle(75, 225, 25);
+                Draw.Circle(25, 225, 25);
+                Draw.Circle(25, 275, 25);
+                Draw.Circle(125, 275, 25);
+                Draw.Circle(275, 275, 25);
+                Draw.Circle(325, 275, 25);
+                Draw.Circle(375, 275, 25);
+                Draw.Circle(125, 325, 25);
+                Draw.Circle(175, 325, 25);
+                Draw.Circle(225, 325, 25);
+                Draw.Circle(375, 325, 25);
+                Draw.Circle(25, 375, 25);
+                Draw.Circle(75, 375, 25);
+                Draw.Circle(275, 375, 25);
+                Draw.Circle(200, 125, 25);
+                Draw.Circle(200, 275, 25);
+            }
 
             //Draw Victory Pipe
             Draw.FillColor = GoldenPipe;
@@ -90,44 +93,48 @@ namespace MohawkGame2D
             Draw.Circle(200, 200, 25);
 
             // Fences
-            Draw.FillColor = Color.White;
-            Draw.LineColor = Color.White;
-            Draw.Rectangle(0, 100, 50, 5);
-            Draw.Rectangle(0, 250, 50, 5);
-            Draw.Rectangle(0, 300, 250, 5);
-            Draw.Rectangle(50, 150, 100, 5);
-            Draw.Rectangle(50, 200, 50, 5);
-            Draw.Rectangle(50, 350, 100, 5);
-            Draw.Rectangle(100, 250, 50, 5);
-            Draw.Rectangle(150, 50, 50, 5);
-            Draw.Rectangle(150, 100, 250, 5);
-            Draw.Rectangle(200, 350, 50, 5);
-            Draw.Rectangle(250, 50, 100, 5);
-            Draw.Rectangle(250, 150, 50, 5);
-            Draw.Rectangle(250, 250, 100, 5);
-            Draw.Rectangle(300, 200, 50, 5);
-            Draw.Rectangle(350, 150, 50, 5);
-            Draw.Rectangle(350, 300, 50, 5);
-            Draw.Rectangle(100, 0, 5, 250);
-            Draw.Rectangle(150, 0, 5, 50);
-            Draw.Rectangle(350, 0, 5, 50);
-            Draw.Rectangle(200, 50, 5, 50);
-            Draw.Rectangle(250, 50, 5, 100);
-            Draw.Rectangle(50, 100, 5, 50);
-            Draw.Rectangle(150, 100, 5, 50);
-            Draw.Rectangle(300, 150, 5, 250);
-            Draw.Rectangle(350, 150, 5, 50);
-            Draw.Rectangle(50, 200, 5, 50);
-            Draw.Rectangle(150, 250, 5, 100);
-            Draw.Rectangle(250, 250, 5, 50);
-            Draw.Rectangle(350, 250, 5, 50);
-            Draw.Rectangle(200, 300, 5, 50);
-            Draw.Rectangle(50, 350, 5, 50);
-            Draw.Rectangle(250, 350, 5, 50);
+            {
+                Draw.FillColor = Color.White;
+                Draw.LineColor = Color.White;
+                Draw.Rectangle(0, 100, 50, 5);
+                Draw.Rectangle(0, 250, 50, 5);
+                Draw.Rectangle(0, 300, 250, 5);
+                Draw.Rectangle(50, 150, 100, 5);
+                Draw.Rectangle(50, 200, 50, 5);
+                Draw.Rectangle(50, 350, 100, 5);
+                Draw.Rectangle(100, 250, 50, 5);
+                Draw.Rectangle(150, 50, 50, 5);
+                Draw.Rectangle(150, 100, 250, 5);
+                Draw.Rectangle(200, 350, 50, 5);
+                Draw.Rectangle(250, 50, 100, 5);
+                Draw.Rectangle(250, 150, 50, 5);
+                Draw.Rectangle(250, 250, 100, 5);
+                Draw.Rectangle(300, 200, 50, 5);
+                Draw.Rectangle(350, 150, 50, 5);
+                Draw.Rectangle(350, 300, 50, 5);
+                Draw.Rectangle(100, 0, 5, 250);
+                Draw.Rectangle(150, 0, 5, 50);
+                Draw.Rectangle(350, 0, 5, 50);
+                Draw.Rectangle(200, 50, 5, 50);
+                Draw.Rectangle(250, 50, 5, 100);
+                Draw.Rectangle(50, 100, 5, 50);
+                Draw.Rectangle(150, 100, 5, 50);
+                Draw.Rectangle(300, 150, 5, 250);
+                Draw.Rectangle(350, 150, 5, 50);
+                Draw.Rectangle(50, 200, 5, 50);
+                Draw.Rectangle(150, 250, 5, 100);
+                Draw.Rectangle(250, 250, 5, 50);
+                Draw.Rectangle(350, 250, 5, 50);
+                Draw.Rectangle(200, 300, 5, 50);
+                Draw.Rectangle(50, 350, 5, 50);
+                Draw.Rectangle(250, 350, 5, 50);
+            }
+
 
             // Draw Frog
             Graphics.Draw(Frog, playerPosition.X, playerPosition.Y);
 
+            // Player Movement
             void HandlePlayerMovement()
             {
                 if (Input.IsKeyboardKeyDown(KeyboardInput.D)|| Input.IsKeyboardKeyDown(KeyboardInput.Right))
@@ -149,6 +156,7 @@ namespace MohawkGame2D
             }
             playerPosition += velocity * Time.DeltaTime;
 
+            // Border Collison
             bool isCollideLeft = playerPosition.X <= 0;
             bool isCollideRight = playerPosition.X >= Window.Width;
             bool isCollideTop = playerPosition.Y <= 0;
