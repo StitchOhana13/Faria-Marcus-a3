@@ -19,11 +19,9 @@ namespace MohawkGame2D
         Color PipeBorder = new Color("#58308d"); //pipe border colour
         Color GoldenPipe = new Color("#ebb81e"); //Victory Pipe Colour
         Color GPipeBorder = new Color("#b68a05"); //victory pipe border
-        // Color FrogBodyLight = new Color("#74bb1f"); //Frog player body colour light
-        // Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
-        // Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
 
         Player player;
+        Warps wp;
         Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
         //Vector2 playerPosition = new Vector2(50, 50);
         //float playerSpeed = 100;
@@ -53,6 +51,10 @@ namespace MohawkGame2D
             Draw.FillColor = GrassGreen;
             Draw.LineColor = GrassGreen;
             Draw.Square(0, 0, 400);
+
+            wp.WarpPipes();
+            wp.Warp();
+
 
             // "Warp Pipes"
             {

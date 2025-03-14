@@ -18,6 +18,9 @@ namespace Faria_Marcus_a3
         public Vector2 velocity;
         public bool hasHitScreenEdge;
         public float colliderSize = 0;
+        // Color FrogBodyLight = new Color("#74bb1f"); //Frog player body colour light
+        // Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
+        // Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
 
         // Draw Frog
         public void Render()
