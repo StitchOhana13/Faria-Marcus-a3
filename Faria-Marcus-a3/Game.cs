@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
+using Faria_Marcus_a3;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -22,24 +23,30 @@ namespace MohawkGame2D
         // Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
         // Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
 
+        Player player;
         Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
-        Vector2 playerPosition = new Vector2(50, 50);
-        float playerSpeed = 100;
-        Vector2 size;
-        Vector2 velocity;
-        bool hasHitScreenEdge;
+        //Vector2 playerPosition = new Vector2(50, 50);
+        //float playerSpeed = 100;
+        //Vector2 size;
+        //Vector2 velocity;
+        //Vector2 position;
+        //bool hasHitScreenEdge;
 
 
         public void Setup()
         {
             Window.SetTitle("Warp Pipe Dream");
             Window.SetSize(400, 400);
+
+            player = new Player();
+            player.playerPosition = new Vector2(0, 0);
+
         }
 
         public void Update()
         {
             Window.ClearBackground(Color.OffWhite);
-            HandlePlayerMovement();
+            //HandlePlayerMovement();
             
 
             //can't change the background colour the my grass green variable so big square over top of it
@@ -130,72 +137,11 @@ namespace MohawkGame2D
                 Draw.Rectangle(250, 350, 5, 50);
             }
 
-
-            // Draw Frog
-            Graphics.Draw(Frog, playerPosition.X, playerPosition.Y);
-
-            // Player Movement
-            void HandlePlayerMovement()
-            {
-                if (Input.IsKeyboardKeyDown(KeyboardInput.D)|| Input.IsKeyboardKeyDown(KeyboardInput.Right))
-                {
-                    playerPosition.X += Time.DeltaTime * playerSpeed;
-                }
-                if (Input.IsKeyboardKeyDown(KeyboardInput.A)|| Input.IsKeyboardKeyDown(KeyboardInput.Left))
-                {
-                    playerPosition.X -= Time.DeltaTime * playerSpeed;
-                }
-                if (Input.IsKeyboardKeyDown(KeyboardInput.S)|| Input.IsKeyboardKeyDown(KeyboardInput.Down))
-                {
-                    playerPosition.Y += Time.DeltaTime * playerSpeed;
-                }
-                if (Input.IsKeyboardKeyDown(KeyboardInput.W)|| Input.IsKeyboardKeyDown(KeyboardInput.Up))
-                {
-                    playerPosition.Y -= Time.DeltaTime * playerSpeed;
-                }
-            }
-            playerPosition += velocity * Time.DeltaTime;
-
-            // Border Collison
-            bool isCollideLeft = playerPosition.X <= 0;
-            bool isCollideRight = playerPosition.X >= Window.Width;
-            bool isCollideTop = playerPosition.Y <= 0;
-            bool isCollideBottom = playerPosition.Y >= Window.Height;
-            hasHitScreenEdge = isCollideLeft || isCollideRight || isCollideTop || isCollideBottom;
-            if (hasHitScreenEdge)
-            {
-                // Horizontal negation
-                if (isCollideLeft || isCollideRight)
-                    velocity.X = -velocity.X;
-
-                //veritcal negation
-                if (isCollideTop || isCollideBottom)
-                    velocity.Y = -velocity.Y;
-
-                // Constrain to left
-                if (isCollideLeft)
-                    playerPosition.X = 0;
-                // Constrain to Right
-                if (isCollideRight)
-                    playerPosition.X = Window.Width;
-                // Constrain to Top
-                if (isCollideTop)
-                    playerPosition.Y = 0;
-                // Constrain to Bottom
-                if (isCollideBottom)
-                    playerPosition.Y = Window.Height;
-
-            }
-
-            bool hitScreenEdge()
-                {
-                bool hitScreenEdge = hasHitScreenEdge;
-                hasHitScreenEdge = false;
-                return hitScreenEdge;
-            }
-
+            player.Render();
+            player.HandlePlayerMovement();
+            player.BorderCollision();
         }
-         
+
     }
 
 }
