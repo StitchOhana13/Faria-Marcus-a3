@@ -10,15 +10,20 @@ namespace Faria_Marcus_a3
 {
     internal class Warps
     {
-        public Vector2 playerPosition = new Vector2(50, 50);
+        public Vector2 playerPosition = new Vector2();
+        public float playerSpeed = 100;
+        public float size;
+        public Vector2 velocity;
         public Vector2 objectPositionA1 = new Vector2(25, 75);
         public Vector2 newPositionK1 = new Vector2(175, 350);
+
 
         internal void update()
         {
             WarpPipes();
-            Warp();
+            //Warp();
         }
+
 
         public void WarpPipes()
         {
@@ -56,12 +61,13 @@ namespace Faria_Marcus_a3
             Draw.Circle(200, 125, 4);
             Draw.Circle(200, 275, 4);
         }
-        public void Warp()
-        {
-            if (Vector2.Distance(playerPosition, objectPositionA1) < 15)
-            {
-                playerPosition = newPositionK1;
-            }
-        }
+        //public void Warp()
+        //{
+        //    if (Vector2.Distance(playerPosition, objectPositionA1) < 10)
+        //    {
+        //        playerPosition = newPositionK1;
+        //    }
+        //}
+        
     }
 }

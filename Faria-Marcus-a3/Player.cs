@@ -12,7 +12,7 @@ namespace Faria_Marcus_a3
     internal class Player
     {
         public Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
-        public Vector2 playerPosition = new Vector2(50, 50);
+        public Vector2 playerPosition = new Vector2(0, 0);
         public float playerSpeed = 100;
         public float size;
         public Vector2 velocity;
@@ -21,6 +21,25 @@ namespace Faria_Marcus_a3
         // Color FrogBodyLight = new Color("#74bb1f"); //Frog player body colour light
         // Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
         // Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
+        // Warp Point vectors
+        public Vector2 objectPositionA1 = new Vector2(0, 65);
+        public Vector2 objectPositionA2 = new Vector2(50, 115);
+        public Vector2 objectPositionB1 = new Vector2(0, 95);
+        //public Vector2 objectPositionB2 = new Vector2(0, 0);
+        //public Vector2 objectPositionB3 = new Vector2(0, 0);
+        //public Vector2 objectPositionC1 = new Vector2(0, 0);
+        //public Vector2 objectPositionC2 = new Vector2(0, 0);
+        //public Vector2 objectPositionC3 = new Vector2(0, 0);
+        //public Vector2 objectPositionD1 = new Vector2(0, 0);
+        //public Vector2 objectPositionD2 = new Vector2(0, 0);
+        //public Vector2 objectPositionE1 = new Vector2(0, 0);
+        //public Vector2 objectPositionE2 = new Vector2(0, 0);
+        //public Vector2 objectPositionE3 = new Vector2(0, 0);
+        //public Vector2 objectPositionF1 = new Vector2(0, 0);
+        //public Vector2 objectPositionF2 = new Vector2(0, 0);
+        public Vector2 newPositionK1 = new Vector2(150, 330);
+        public Vector2 newPositionI2 = new Vector2(350, 335);
+        public Vector2 newPositionG2 = new Vector2(335, 100);
 
         // Draw Frog
         public void Render()
@@ -31,6 +50,7 @@ namespace Faria_Marcus_a3
         {
             HandlePlayerMovement();
             BorderCollision();
+            Warp();
         }
 
             // Player Movement
@@ -76,12 +96,28 @@ namespace Faria_Marcus_a3
 
         }
 
-                //border collision
-                //bool hitScreenEdge()
-                //{
-                //    bool hitScreenEdge = hasHitScreenEdge;
-                //    hasHitScreenEdge = false;
-                //    return hitScreenEdge;
-                //}
+        public void Warp()
+        {
+            if (Vector2.Distance(playerPosition, objectPositionA1) < 10)
+            {
+                playerPosition = newPositionK1;
             }
+            if (Vector2.Distance(playerPosition, objectPositionA2) < 10)
+            {
+                playerPosition = newPositionI2;
+            }
+            if (Vector2.Distance(playerPosition, objectPositionB1) < 10)
+            {
+                playerPosition = newPositionG2;
+            }
+        }
+
+        //border collision
+        //bool hitScreenEdge()
+        //{
+        //    bool hitScreenEdge = hasHitScreenEdge;
+        //    hasHitScreenEdge = false;
+        //    return hitScreenEdge;
+        //}
+    }
         }
