@@ -20,6 +20,7 @@ namespace MohawkGame2D
         Player player;
         Fences fences;
         Pipes pipe;
+        Timer time;
 
         public void Setup()
         {
@@ -29,6 +30,8 @@ namespace MohawkGame2D
             player = new Player();
             fences = new Fences();
             pipe = new Pipes();
+            time = new Timer();
+
 
             player.playerPosition = new Vector2();
         }
@@ -136,10 +139,12 @@ namespace MohawkGame2D
             player.Warp();
             player.FenceBorders();
 
-            pipe.pipeDrawing();
+            pipe.purplePipe();
             pipe.goldPipe();
 
             fences.fence();
+
+            time.timer();
 
             //victory.winCondition();
             //victory.PlayGame();
