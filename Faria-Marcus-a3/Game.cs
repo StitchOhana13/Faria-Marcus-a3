@@ -15,13 +15,11 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Color GrassGreen = new Color("#429637"); //Grass back ground colour
-        Color PurplePipes = new Color("#8058b6"); //Pipe colour
-        Color PipeBorder = new Color("#58308d"); //pipe border colour
-        Color GoldenPipe = new Color("#ebb81e"); //Victory Pipe Colour
-        Color GPipeBorder = new Color("#b68a05"); //victory pipe border
+        public Vector2 playerPosition = new Vector2();
 
         Player player;
         Fences fences;
+        Pipes pipe;
 
         public void Setup()
         {
@@ -30,7 +28,9 @@ namespace MohawkGame2D
 
             player = new Player();
             fences = new Fences();
-            player.playerPosition = new Vector2(0, 0);
+            pipe = new Pipes();
+
+            player.playerPosition = new Vector2();
         }
 
         public void Update()
@@ -86,50 +86,49 @@ namespace MohawkGame2D
             }
 
             // "Warp Pipes"
-            {
-                Draw.FillColor = PurplePipes;
-                Draw.LineColor = PipeBorder;
-                Draw.LineSize = 5;
-                Draw.Circle(25, 75, 25);
-                Draw.Circle(175, 25, 25);
-                Draw.Circle(325, 25, 25);
-                Draw.Circle(375, 25, 25);
-                Draw.Circle(175, 75, 25);
-                Draw.Circle(225, 75, 25);
-                Draw.Circle(275, 75, 25);
-                Draw.Circle(25, 125, 25);
-                Draw.Circle(75, 125, 25);
-                Draw.Circle(125, 125, 25);
-                Draw.Circle(275, 125, 25);
-                Draw.Circle(375, 125, 25);
-                Draw.Circle(75, 175, 25);
-                Draw.Circle(325, 175, 25);
-                Draw.Circle(375, 175, 25);
-                Draw.Circle(25, 225, 25);
-                Draw.Circle(75, 225, 25);
-                Draw.Circle(25, 225, 25);
-                Draw.Circle(25, 275, 25);
-                Draw.Circle(125, 275, 25);
-                Draw.Circle(275, 275, 25);
-                Draw.Circle(325, 275, 25);
-                Draw.Circle(375, 275, 25);
-                Draw.Circle(125, 325, 25);
-                Draw.Circle(175, 325, 25);
-                Draw.Circle(225, 325, 25);
-                Draw.Circle(375, 325, 25);
-                Draw.Circle(25, 375, 25);
-                Draw.Circle(75, 375, 25);
-                Draw.Circle(275, 375, 25);
-                Draw.Circle(200, 125, 25);
-                Draw.Circle(200, 275, 25);
-            }
+            //{
+            //    Draw.FillColor = PurplePipes;
+            //    Draw.LineColor = PipeBorder;
+            //    Draw.LineSize = 5;
+            //    Draw.Circle(25, 75, 25);
+            //    Draw.Circle(175, 25, 25);
+            //    Draw.Circle(325, 25, 25);
+            //    Draw.Circle(375, 25, 25);
+            //    Draw.Circle(175, 75, 25);
+            //    Draw.Circle(225, 75, 25);
+            //    Draw.Circle(275, 75, 25);
+            //    Draw.Circle(25, 125, 25);
+            //    Draw.Circle(75, 125, 25);
+            //    Draw.Circle(125, 125, 25);
+            //    Draw.Circle(275, 125, 25);
+            //    Draw.Circle(375, 125, 25);
+            //    Draw.Circle(75, 175, 25);
+            //    Draw.Circle(325, 175, 25);
+            //    Draw.Circle(375, 175, 25);
+            //    Draw.Circle(25, 225, 25);
+            //    Draw.Circle(75, 225, 25);
+            //    Draw.Circle(25, 225, 25);
+            //    Draw.Circle(25, 275, 25);
+            //    Draw.Circle(125, 275, 25);
+            //    Draw.Circle(275, 275, 25);
+            //    Draw.Circle(325, 275, 25);
+            //    Draw.Circle(375, 275, 25);
+            //    Draw.Circle(125, 325, 25);
+            //    Draw.Circle(175, 325, 25);
+            //    Draw.Circle(225, 325, 25);
+            //    Draw.Circle(375, 325, 25);
+            //    Draw.Circle(25, 375, 25);
+            //    Draw.Circle(75, 375, 25);
+            //    Draw.Circle(275, 375, 25);
+            //    Draw.Circle(200, 125, 25);
+            //    Draw.Circle(200, 275, 25);
+            //}
 
             //Draw Victory Pipe
-            Draw.FillColor = GoldenPipe;
-            Draw.LineColor = GPipeBorder;
-            Draw.LineSize = 5;
-            Draw.Circle(200, 200, 25);
-
+            //Draw.FillColor = GoldenPipe;
+            //Draw.LineColor = GPipeBorder;
+            //Draw.LineSize = 5;
+            //Draw.Circle(200, 200, 25);
 
             player.Render();
             player.HandlePlayerMovement();
@@ -137,7 +136,15 @@ namespace MohawkGame2D
             player.Warp();
             player.FenceBorders();
 
+            pipe.pipeDrawing();
+            pipe.goldPipe();
+
             fences.fence();
+
+            //victory.winCondition();
+            //victory.PlayGame();
+            //victory.Winner();
+            player.winCondition();
         }
 
     }

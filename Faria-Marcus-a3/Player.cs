@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +13,10 @@ namespace Faria_Marcus_a3
     internal class Player
     {
         public Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
-        public Vector2 playerPosition = new Vector2(0, 0);
+        public Vector2 playerPosition = new Vector2();
         public float playerSpeed = 100;
         public float size;
+        //public Rectangle playerSize = new Rectangle(0, 0, 40, 40);
         public Vector2 velocity;
         public bool hasHitScreenEdge;
         public float colliderSize = 0;
@@ -45,7 +46,7 @@ namespace Faria_Marcus_a3
         public Vector2 newPositionI2 = new Vector2(350, 335);
         public Vector2 newPositionG2 = new Vector2(335, 100);
 
-        public Rectangle Fence1 = new Rectangle(0, 100, 50, 5);
+        //public Rectangle Fence1 = new Rectangle(0, 100, 50, 5);
         // Fence Borders positions
         //public Vector2 rectanglePosition1 = new Vector2(0, 100);
         //public Vector2 rectanglePosition2 = new Vector2(0, 250);
@@ -54,16 +55,21 @@ namespace Faria_Marcus_a3
         //public Vector2 rectangleSize1 = new Vector2(50, 5);
         //public Vector2 rectangleSize2 = new Vector2(50, 5);
 
+        //Victory screen Variables
+        public bool isWinner;
+        public Vector2 winPosition = new Vector2(180, 180);
+
         // Draw Frog
         public void Render()
         {
             Graphics.Draw(Frog, playerPosition.X, playerPosition.Y);
         }
-        internal void update()
+        public void update()
         {
             HandlePlayerMovement();
             BorderCollision();
             Warp();
+            FenceBorders();
         }
 
             // Player Movement
@@ -106,6 +112,7 @@ namespace Faria_Marcus_a3
 
             if (isCollideBottom)
                 playerPosition.Y = 350 - colliderSize;
+            Console.WriteLine(playerPosition);
         }
 
         public void Warp()
@@ -144,6 +151,36 @@ namespace Faria_Marcus_a3
                 //if (isCollideBottom1)
                 //    playerPosition.Y = 250 - colliderSize;
             } 
+        }
+
+
+        public void winCondition()
+        {
+            if (isWinner)
+            {
+                Winner();
+            }
+            else
+            {
+                PlayGame();
+            }
+        }
+
+        public void PlayGame()
+        {
+            float distance = Vector2.Distance(playerPosition, winPosition);
+            if (distance < 10)
+            {
+                isWinner = true;
+            }
+        }
+
+        public void Winner()
+        {
+            Window.ClearBackground(Color.Yellow);
+
+            Text.Draw("Congratulations!!", 50, 100);
+            Text.Draw("Final Time: ...", 50, 200);
         }
 
         //border collision

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -11,9 +12,10 @@ namespace Faria_Marcus_a3
     internal class Fences
     {
         public float colliderSize = 0;
-        public Vector2 playerPosition = new Vector2(0, 0);
+        public Vector2 playerPosition = new Vector2();
         public float playerSpeed = 100;
         public float size;
+        //public Rectangle playerSize = new Rectangle(playerPosiiton, playerPosition, 40, 40);
         public Vector2 rectanglePosition1 = new Vector2(0, 100);
         public Vector2 rectanglePosition2 = new Vector2(0, 250);
 
