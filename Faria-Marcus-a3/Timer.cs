@@ -9,12 +9,12 @@ namespace Faria_Marcus_a3
 {
     internal class Timer
     {
-        public float secondsElapsed = Time.SecondsElapsed;
+        public float secondsElapsed;
 
         public void update()
         {
             timer();
-            float secondElapsed = Time.SecondsElapsed;
+            secondsElapsed += Time.DeltaTime;
         }
 
         public void timer()
@@ -24,10 +24,10 @@ namespace Faria_Marcus_a3
             Draw.LineSize = 2;
             Draw.Rectangle(305, 350, 100, 50);
 
-            string elapsedTime = secondsElapsed.ToString();
+            string DeltaTime = secondsElapsed.ToString();
 
             Text.Size = 20;
-            Text.Draw(elapsedTime, 310, 355);
+            Text.Draw(DeltaTime, 310, 355);
         }
     }
 }

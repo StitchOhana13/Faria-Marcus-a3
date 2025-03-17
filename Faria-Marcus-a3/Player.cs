@@ -15,7 +15,7 @@ namespace Faria_Marcus_a3
         public Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
         public Vector2 playerPosition = new Vector2();
         public float playerSpeed = 100;
-        public float size;
+        public Vector2 playerSize = new Vector2(40,40);
         //public Rectangle playerSize = new Rectangle(0, 0, 40, 40);
         public Vector2 velocity;
         public bool hasHitScreenEdge;
@@ -40,11 +40,55 @@ namespace Faria_Marcus_a3
         //public Vector2 objectPositionE3 = new Vector2(0, 0);
         //public Vector2 objectPositionF1 = new Vector2(0, 0);
         //public Vector2 objectPositionF2 = new Vector2(0, 0);
+        //public Vector2 objectPositionG1 = new Vector2(0, 0);
+        //public Vector2 objectPositionG2 = new Vector2(0, 0);
+        //public Vector2 objectPositionG3 = new Vector2(0, 0);
+        //public Vector2 objectPositionH1 = new Vector2(0, 0);
+        //public Vector2 objectPositionH2 = new Vector2(0, 0);
+        //public Vector2 objectPositionH3 = new Vector2(0, 0);
+        //public Vector2 objectPositionI1 = new Vector2(0, 0);
+        //public Vector2 objectPositionI2 = new Vector2(0, 0);
+        //public Vector2 objectPositionJ1 = new Vector2(0, 0);
+        //public Vector2 objectPositionJ2 = new Vector2(0, 0);
+        //public Vector2 objectPositionK1 = new Vector2(0, 0);
+        //public Vector2 objectPositionK2 = new Vector2(0, 0);
+        //public Vector2 objectPositionK3 = new Vector2(0, 0);
+        //public Vector2 objectPositionL1 = new Vector2(0, 0);
+        //public Vector2 objectPositionL2 = new Vector2(0, 0);
 
         // Warp destination Vectors
-        public Vector2 newPositionK1 = new Vector2(150, 330);
-        public Vector2 newPositionI2 = new Vector2(350, 335);
+        //public Vector2 newPositionA1 = new Vector2(0, 0);
+        //public Vector2 newPositionA2 = new Vector2(0, 0);
+        //public Vector2 newPositionB1 = new Vector2(0, 0);
+        //public Vector2 newPositionB2 = new Vector2(0, 0);
+        //public Vector2 newPositionB3 = new Vector2(0, 0);
+        //public Vector2 newPositionC1 = new Vector2(0, 0);
+        //public Vector2 newPositionC2 = new Vector2(0, 0);
+        //public Vector2 newPositionC3 = new Vector2(0, 0);
+        //public Vector2 newPositionD1 = new Vector2(0, 0);
+        //public Vector2 newPositionD2 = new Vector2(0, 0);
+        //public Vector2 newPositionE1 = new Vector2(0, 0);
+        //public Vector2 newPositionE2 = new Vector2(0, 0);
+        //public Vector2 newPositionE3 = new Vector2(0, 0);
+        //public Vector2 newPositionF1 = new Vector2(0, 0);
+        //public Vector2 newPositionF2 = new Vector2(0, 0);
+        //public Vector2 newPositionG1 = new Vector2(0, 0);
         public Vector2 newPositionG2 = new Vector2(335, 100);
+        //public Vector2 newPositionG3 = new Vector2(0, 0);
+        //public Vector2 newPositionH1 = new Vector2(0, 0);
+        //public Vector2 newPositionH2 = new Vector2(0, 0);
+        //public Vector2 newPositionH3 = new Vector2(0, 0);
+        //public Vector2 newPositionI1 = new Vector2(0, 0);
+        public Vector2 newPositionI2 = new Vector2(350, 335);
+        //public Vector2 newPositionJ1 = new Vector2(0, 0);
+        //public Vector2 newPositionJ2 = new Vector2(0, 0);
+        public Vector2 newPositionK1 = new Vector2(150, 330);
+        //public Vector2 newPositionK2 = new Vector2(0, 0);
+        //public Vector2 newPositionK3 = new Vector2(0, 0);
+        //public Vector2 newPositionL1 = new Vector2(0, 0);
+        //public Vector2 newPositionL2 = new Vector2(0, 0);
+        //public Vector2 newPositionM1 = new Vector2(0, 0);
+        //public Vector2 newPositionM2 = new Vector2(0, 0);
 
         //public Rectangle Fence1 = new Rectangle(0, 100, 50, 5);
         // Fence Borders positions
@@ -73,25 +117,30 @@ namespace Faria_Marcus_a3
         }
 
             // Player Movement
-            public void HandlePlayerMovement()
+        public void HandlePlayerMovement()
         {
+            Vector2 newPosition = playerPosition;
             if (Input.IsKeyboardKeyDown(KeyboardInput.D) || Input.IsKeyboardKeyDown(KeyboardInput.Right))
             {
-                playerPosition.X += Time.DeltaTime * playerSpeed;
+                newPosition.X += Time.DeltaTime * playerSpeed;
             }
             if (Input.IsKeyboardKeyDown(KeyboardInput.A) || Input.IsKeyboardKeyDown(KeyboardInput.Left))
             {
-                playerPosition.X -= Time.DeltaTime * playerSpeed;
+                newPosition.X -= Time.DeltaTime * playerSpeed;
             }
             if (Input.IsKeyboardKeyDown(KeyboardInput.S) || Input.IsKeyboardKeyDown(KeyboardInput.Down))
             {
-                playerPosition.Y += Time.DeltaTime * playerSpeed;
+                newPosition.Y += Time.DeltaTime * playerSpeed;
             }
             if (Input.IsKeyboardKeyDown(KeyboardInput.W) || Input.IsKeyboardKeyDown(KeyboardInput.Up))
             {
-                playerPosition.Y -= Time.DeltaTime * playerSpeed;
+                newPosition.Y -= Time.DeltaTime * playerSpeed;
             }
-            playerPosition += velocity * Time.DeltaTime;
+            if (Fences.FenceCheck(newPosition, playerSize))
+            {
+                playerPosition = newPosition;
+            }
+           // Console.WriteLine(playerPosition.ToString());
         }
 
         public void BorderCollision()
@@ -112,7 +161,6 @@ namespace Faria_Marcus_a3
 
             if (isCollideBottom)
                 playerPosition.Y = 350 - colliderSize;
-            Console.WriteLine(playerPosition);
         }
 
         public void Warp()

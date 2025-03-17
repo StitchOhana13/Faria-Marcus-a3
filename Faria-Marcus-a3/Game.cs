@@ -133,7 +133,7 @@ namespace MohawkGame2D
             //Draw.LineSize = 5;
             //Draw.Circle(200, 200, 25);
 
-            player.Render();
+
             player.HandlePlayerMovement();
             player.BorderCollision();
             player.Warp();
@@ -142,13 +142,13 @@ namespace MohawkGame2D
             pipe.purplePipe();
             pipe.goldPipe();
 
+            player.Render();
+
             fences.fence();
 
-            time.timer();
 
-            //victory.winCondition();
-            //victory.PlayGame();
-            //victory.Winner();
+            time.update();
+
             player.winCondition();
         }
 
