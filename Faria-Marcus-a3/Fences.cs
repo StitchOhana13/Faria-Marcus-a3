@@ -23,38 +23,38 @@ namespace Faria_Marcus_a3
         }
 
         static public Rectangle[] fences = [
-            new Rectangle(new Vector2(0, 100), new Vector2(50, 5)), //1
-            new Rectangle(new Vector2(0, 250), new Vector2(50, 5)), //2
-            new Rectangle(new Vector2(0, 300), new Vector2(250, 5)), //3
-            new Rectangle(new Vector2(50, 150), new Vector2(100, 5)), //4
-            new Rectangle(new Vector2(50, 200), new Vector2(50, 5)), //5
-            new Rectangle(new Vector2(50, 350), new Vector2(100, 5)), //6
-            new Rectangle(new Vector2(100, 250), new Vector2(50, 5)), //7
-            new Rectangle(new Vector2(150, 50), new Vector2(50, 5)), //8
-            new Rectangle(new Vector2(150, 100), new Vector2(250, 5)), //9
-            new Rectangle(new Vector2(200, 350), new Vector2(50, 5)), //10
-            new Rectangle(new Vector2(250, 50), new Vector2(100, 5)), //11
-            new Rectangle(new Vector2(250, 150), new Vector2(50, 5)), //12
-            new Rectangle(new Vector2(250, 250), new Vector2(100, 5)), //13
-            new Rectangle(new Vector2(300, 200), new Vector2(50, 5)), //14
-            new Rectangle(new Vector2(350, 150), new Vector2(50, 5)), //15
-            new Rectangle(new Vector2(350, 300), new Vector2(50, 5)), //16
-            new Rectangle(new Vector2(100, 0), new Vector2(5, 250)), //17
-            new Rectangle(new Vector2(150, 0), new Vector2(5, 50)), //18
-            new Rectangle(new Vector2(350, 0), new Vector2(5, 50)), //19
-            new Rectangle(new Vector2(200, 50), new Vector2(5, 50)), //20
-            new Rectangle(new Vector2(250, 50), new Vector2(5, 100)), //21
-            new Rectangle(new Vector2(50, 100), new Vector2(5, 50)), //22
-            new Rectangle(new Vector2(150, 100), new Vector2(5, 50)), //23
-            new Rectangle(new Vector2(300, 150), new Vector2(5, 250)), //24
-            new Rectangle(new Vector2(50, 200), new Vector2(5, 50)), //25
-            new Rectangle(new Vector2(350, 150), new Vector2(5, 50)), //26
-            new Rectangle(new Vector2(150, 250), new Vector2(5, 100)), //27
-            new Rectangle(new Vector2(250, 250), new Vector2(5, 50)), //28
-            new Rectangle(new Vector2(350, 250), new Vector2(5, 50)), //29
-            new Rectangle(new Vector2(200, 300), new Vector2(5, 50)), //30
-            new Rectangle(new Vector2(50, 350), new Vector2(5, 50)), //31
-            new Rectangle(new Vector2(250, 350), new Vector2(5, 50)), //32
+            new Rectangle(new Vector2(0, 100), new Vector2(50, 3)), //1
+            new Rectangle(new Vector2(0, 250), new Vector2(50, 3)), //2
+            new Rectangle(new Vector2(0, 300), new Vector2(250, 3)), //3
+            new Rectangle(new Vector2(50, 150), new Vector2(100, 3)), //4
+            new Rectangle(new Vector2(50, 200), new Vector2(50, 3)), //5
+            new Rectangle(new Vector2(50, 350), new Vector2(100, 3)), //6
+            new Rectangle(new Vector2(100, 250), new Vector2(50, 3)), //7
+            new Rectangle(new Vector2(150, 50), new Vector2(50, 3)), //8
+            new Rectangle(new Vector2(150, 100), new Vector2(250, 3)), //9
+            new Rectangle(new Vector2(200, 350), new Vector2(50, 3)), //10
+            new Rectangle(new Vector2(250, 50), new Vector2(100, 3)), //11
+            new Rectangle(new Vector2(250, 150), new Vector2(50, 3)), //12
+            new Rectangle(new Vector2(250, 250), new Vector2(100, 3)), //13
+            new Rectangle(new Vector2(300, 200), new Vector2(50, 3)), //14
+            new Rectangle(new Vector2(350, 150), new Vector2(50, 3)), //15
+            new Rectangle(new Vector2(350, 300), new Vector2(50, 3)), //16
+            new Rectangle(new Vector2(100, 0), new Vector2(3, 250)), //17
+            new Rectangle(new Vector2(150, 0), new Vector2(3, 50)), //18
+            new Rectangle(new Vector2(350, 0), new Vector2(3, 50)), //19
+            new Rectangle(new Vector2(200, 50), new Vector2(3, 50)), //20
+            new Rectangle(new Vector2(250, 50), new Vector2(3, 100)), //21
+            new Rectangle(new Vector2(50, 100), new Vector2(3, 50)), //22
+            new Rectangle(new Vector2(150, 100), new Vector2(3, 50)), //23
+            new Rectangle(new Vector2(300, 150), new Vector2(3, 250)), //24
+            new Rectangle(new Vector2(50, 200), new Vector2(3, 50)), //25
+            new Rectangle(new Vector2(350, 150), new Vector2(3, 50)), //26
+            new Rectangle(new Vector2(150, 250), new Vector2(3, 100)), //27
+            new Rectangle(new Vector2(250, 250), new Vector2(3, 50)), //28
+            new Rectangle(new Vector2(350, 250), new Vector2(3, 50)), //29
+            new Rectangle(new Vector2(200, 300), new Vector2(3, 50)), //30
+            new Rectangle(new Vector2(50, 350), new Vector2(3, 50)), //31
+            new Rectangle(new Vector2(250, 350), new Vector2(3, 50)), //32
         ];
 
         public Vector2 rectanglePosition1 = new Vector2(0, 100);

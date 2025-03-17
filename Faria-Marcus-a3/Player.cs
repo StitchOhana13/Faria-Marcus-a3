@@ -27,66 +27,66 @@ namespace Faria_Marcus_a3
         // Warp Point vectors
         public Vector2 objectPositionA1 = new Vector2(0, 55);
         public Vector2 objectPositionA2 = new Vector2(50, 115);
-        public Vector2 objectPositionB1 = new Vector2(0, 135);
-        public Vector2 objectPositionB2 = new Vector2(65, 150);
-        public Vector2 objectPositionB3 = new Vector2(0, 215);
-        public Vector2 objectPositionC1 = new Vector2(50, 235);
-        public Vector2 objectPositionC2 = new Vector2(35, 250);
-        public Vector2 objectPositionC3 = new Vector2(115, 250);
+        public Vector2 objectPositionB1 = new Vector2(0, 110);
+        public Vector2 objectPositionB2 = new Vector2(55, 150);
+        public Vector2 objectPositionB3 = new Vector2(5, 210);
+        public Vector2 objectPositionC1 = new Vector2(55, 215);
+        public Vector2 objectPositionC2 = new Vector2(20, 250);
+        public Vector2 objectPositionC3 = new Vector2(95, 250);
         public Vector2 objectPositionD1 = new Vector2(100, 115);
         public Vector2 objectPositionD2 = new Vector2(165, 50);
-        public Vector2 objectPositionE1 = new Vector2(185, 0);
-        public Vector2 objectPositionE2 = new Vector2(200, 65);
-        public Vector2 objectPositionE3 = new Vector2(315, 0);
-        public Vector2 objectPositionF1 = new Vector2(350, 35);
-        public Vector2 objectPositionF2 = new Vector2(285, 50);
-        public Vector2 objectPositionG1 = new Vector2(285, 100);
-        public Vector2 objectPositionG2 = new Vector2(365, 100);
-        public Vector2 objectPositionG3 = new Vector2(300, 165);
-        public Vector2 objectPositionH1 = new Vector2(350, 185);
-        public Vector2 objectPositionH2 = new Vector2(335, 200);
-        public Vector2 objectPositionH3 = new Vector2(250, 265);
-        public Vector2 objectPositionI1 = new Vector2(300, 285);
+        public Vector2 objectPositionE1 = new Vector2(160, 5);
+        public Vector2 objectPositionE2 = new Vector2(205, 45);
+        public Vector2 objectPositionE3 = new Vector2(305, 5);
+        public Vector2 objectPositionF1 = new Vector2(350, 15);
+        public Vector2 objectPositionF2 = new Vector2(265, 55);
+        public Vector2 objectPositionG1 = new Vector2(255, 105);
+        public Vector2 objectPositionG2 = new Vector2(335, 105);
+        public Vector2 objectPositionG3 = new Vector2(305, 165);
+        public Vector2 objectPositionH1 = new Vector2(350, 155);
+        public Vector2 objectPositionH2 = new Vector2(315, 200);
+        public Vector2 objectPositionH3 = new Vector2(355, 255);
+        public Vector2 objectPositionI1 = new Vector2(300, 265);
         public Vector2 objectPositionI2 = new Vector2(350, 305);
-        public Vector2 objectPositionJ1 = new Vector2(250, 285);
-        public Vector2 objectPositionJ2 = new Vector2(235, 300);
+        public Vector2 objectPositionJ1 = new Vector2(250, 255);
+        public Vector2 objectPositionJ2 = new Vector2(215, 300);
         public Vector2 objectPositionK1 = new Vector2(155, 315);
-        public Vector2 objectPositionK2 = new Vector2(215, 350);
-        public Vector2 objectPositionK3 = new Vector2(85, 350);
+        public Vector2 objectPositionK2 = new Vector2(210, 355);
+        public Vector2 objectPositionK3 = new Vector2(65, 355);
         public Vector2 objectPositionL1 = new Vector2(115, 300);
         public Vector2 objectPositionL2 = new Vector2(0, 365);
 
         // Warp destination Vectors
         public Vector2 newPositionA1 = new Vector2(5, 45);
         public Vector2 newPositionA2 = new Vector2(55, 85);
-        public Vector2 newPositionB1 = new Vector2(5, 165);
-        public Vector2 newPositionB2 = new Vector2(35, 155);
-        public Vector2 newPositionB3 = new Vector2(5, 185);
-        public Vector2 newPositionC1 = new Vector2(55, 265);
-        public Vector2 newPositionC2 = new Vector2(65, 255);
-        public Vector2 newPositionC3 = new Vector2(85, 255);
-        public Vector2 newPositionD1 = new Vector2(105, 85);
-        public Vector2 newPositionD2 = new Vector2(135, 55);
-        public Vector2 newPositionE1 = new Vector2(215, 5);
+        public Vector2 newPositionB1 = new Vector2(5, 135);
+        public Vector2 newPositionB2 = new Vector2(25, 155);
+        public Vector2 newPositionB3 = new Vector2(5, 175);
+        public Vector2 newPositionC1 = new Vector2(55, 235);
+        public Vector2 newPositionC2 = new Vector2(40, 255);
+        public Vector2 newPositionC3 = new Vector2(80, 255);
+        public Vector2 newPositionD1 = new Vector2(105, 80);
+        public Vector2 newPositionD2 = new Vector2(120, 55);
+        public Vector2 newPositionE1 = new Vector2(185, 5);
         public Vector2 newPositionE2 = new Vector2(205, 35);
         public Vector2 newPositionE3 = new Vector2(285, 5);
-        public Vector2 newPositionF1 = new Vector2(355, 65);
-        public Vector2 newPositionF2 = new Vector2(315, 55);
-        public Vector2 newPositionG1 = new Vector2(315, 105);
-        public Vector2 newPositionG2 = new Vector2(335, 105);
+        public Vector2 newPositionF1 = new Vector2(355, 45);
+        public Vector2 newPositionF2 = new Vector2(285, 55);
+        public Vector2 newPositionG1 = new Vector2(290, 105);
+        public Vector2 newPositionG2 = new Vector2(315, 105);
         public Vector2 newPositionG3 = new Vector2(305, 135);
-        public Vector2 newPositionH1 = new Vector2(355, 215);
-        public Vector2 newPositionH2 = new Vector2(365, 205);
+        public Vector2 newPositionH1 = new Vector2(355, 190);
+        public Vector2 newPositionH2 = new Vector2(335, 205);
         public Vector2 newPositionH3 = new Vector2(355, 235);
-        public Vector2 newPositionI1 = new Vector2(305, 315);
+        public Vector2 newPositionI1 = new Vector2(305, 290);
         public Vector2 newPositionI2 = new Vector2(355, 365);
-        public Vector2 newPositionJ1 = new Vector2(255, 315);
-        public Vector2 newPositionJ2 = new Vector2(265, 305);
+        public Vector2 newPositionJ1 = new Vector2(255, 295);
+        public Vector2 newPositionJ2 = new Vector2(225, 305);
         public Vector2 newPositionK1 = new Vector2(155, 335);
         public Vector2 newPositionK2 = new Vector2(185, 355);
-        public Vector2 newPositionK3 = new Vector2(115, 355);
-        public Vector2 newPositionL1 = new Vector2(85, 305);
-        public Vector2 newPositionL2 = new Vector2(335, 5);
+        public Vector2 newPositionK3 = new Vector2(90, 355);
+        public Vector2 newPositionL1 = new Vector2(70, 305);
+        public Vector2 newPositionL2 = new Vector2(5, 335);
         public Vector2 newPositionM1 = new Vector2(175, 105);
         public Vector2 newPositionM2 = new Vector2(175, 255);
 
@@ -136,9 +136,9 @@ namespace Faria_Marcus_a3
         public void BorderCollision()
         {
             bool isCollideLeft = playerPosition.X - colliderSize <= 0;
-            bool isCollideRight = playerPosition.X - colliderSize >= 365;
+            bool isCollideRight = playerPosition.X - colliderSize >= 400;
             bool isCollideTop = playerPosition.Y - colliderSize <= 0;
-            bool isCollideBottom = playerPosition.Y + colliderSize >= 365;
+            bool isCollideBottom = playerPosition.Y + colliderSize >= 400;
 
             if (isCollideLeft)
                 playerPosition.X = 0 + colliderSize;
@@ -191,6 +191,10 @@ namespace Faria_Marcus_a3
             {
                 playerPosition = newPositionH3;
             }
+            if (Vector2.Distance(playerPosition, objectPositionH3) < 10)
+            {
+                playerPosition = newPositionF2;
+            }
             if (Vector2.Distance(playerPosition, objectPositionH2) < 10)
             {
                 playerPosition = newPositionC3;
@@ -239,6 +243,10 @@ namespace Faria_Marcus_a3
             {
                 playerPosition = newPositionB2;
             }
+            if (Vector2.Distance(playerPosition, objectPositionB2) < 10)
+            {
+                playerPosition = newPositionI1;
+            }
             if (Vector2.Distance(playerPosition, objectPositionH1) < 10)
             {
                 playerPosition = newPositionD1;
@@ -262,6 +270,10 @@ namespace Faria_Marcus_a3
             if (Vector2.Distance(playerPosition, objectPositionC2) < 10)
             {
                 playerPosition = newPositionL2;
+            }
+            if (Vector2.Distance(playerPosition, objectPositionG3) < 10)
+            {
+                playerPosition = newPositionM2;
             }
         }
 
