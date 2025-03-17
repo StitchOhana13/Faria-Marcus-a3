@@ -137,7 +137,6 @@ namespace MohawkGame2D
             player.HandlePlayerMovement();
             player.BorderCollision();
             player.Warp();
-            player.FenceBorders();
 
             pipe.purplePipe();
             pipe.goldPipe();
