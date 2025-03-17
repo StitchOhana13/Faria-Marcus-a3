@@ -20,6 +20,7 @@ namespace Faria_Marcus_a3
         public Vector2 velocity;
         public bool hasHitScreenEdge;
         public float colliderSize = 0;
+        Timer time;
         // Color FrogBodyLight = new Color("#74bb1f"); //Frog player body colour light
         // Color FrogBodyDark = new Color("#437013"); //Frog player body colour dark
         // Color Frogcheeks = new Color("#ffcde9"); //Frog cheek colour
@@ -104,6 +105,8 @@ namespace Faria_Marcus_a3
             HandlePlayerMovement();
             BorderCollision();
             Warp();
+            time = new Timer();
+            time.update();
         }
 
             // Player Movement
@@ -305,7 +308,7 @@ namespace Faria_Marcus_a3
             Window.ClearBackground(Color.Yellow);
 
             Text.Draw("Congratulations!!", 50, 100);
-            Text.Draw("Final Time: ...", 50, 200);
+            Text.Draw($"Final Time: ", 50, 200);
         }
 
         //border collision
