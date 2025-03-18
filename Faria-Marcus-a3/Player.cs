@@ -108,7 +108,6 @@ namespace Faria_Marcus_a3
             BorderCollision();
             Warp();
             time = new Timer();
-            time.update();
 
             Audio.Play(FunSun);
         }
@@ -315,7 +314,7 @@ namespace Faria_Marcus_a3
             Audio.Play(Victor);
 
             Text.Draw("Congratulations!!", 50, 100);
-            Text.Draw($"Final Time: ", 50, 200);
+            Text.Draw($"Final Time: {time.secondsElapsed}", 50, 200);
         }
 
         //border collision

@@ -16,8 +16,20 @@ namespace Faria_Marcus_a3
         {
             timer();
             secondsElapsed += Time.DeltaTime;
+
             player = new Player();
             player.winCondition();
+            player.PlayGame();
+
+            if (player.isWinner)
+            {
+                secondsElapsed += Time.DeltaTime;
+                Console.WriteLine("YES YES YES");
+            }
+            else
+            {
+                player.PlayGame();
+            }
         }
 
         public void timer()
@@ -32,10 +44,9 @@ namespace Faria_Marcus_a3
             Text.Size = 20;
             Text.Draw(DeltaTime, 310, 355);
 
-            //if (player.isWinner == true)
-            //{
-            //    secondsElapsed -= Time.DeltaTime;
-            //}
+            //Console.WriteLine(secondsElapsed);
+
+
         }
 
     }
