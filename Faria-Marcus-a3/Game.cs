@@ -16,7 +16,7 @@ namespace MohawkGame2D
         // Place your variables here:
         Color GrassGreen = new Color("#429637"); //Grass back ground colour
         public Vector2 playerPosition = new Vector2();
-        public Music LoadMusic("../../../../Assets/Audio/FunInTheSun.MP3");
+        public Music FunSun = Audio.LoadMusic("../../../../Assets/Audio/FunInTheSun.MP3");
 
         Player player;
         Fences fences;
@@ -32,6 +32,8 @@ namespace MohawkGame2D
             fences = new Fences();
             pipe = new Pipes();
             time = new Timer();
+
+            //Audio.Play(FunSun);
 
 
             player.playerPosition = new Vector2();
@@ -134,8 +136,7 @@ namespace MohawkGame2D
             //Draw.LineSize = 5;
             //Draw.Circle(200, 200, 25);
 
-
-
+            player.update();
             player.HandlePlayerMovement();
             player.BorderCollision();
             player.Warp();

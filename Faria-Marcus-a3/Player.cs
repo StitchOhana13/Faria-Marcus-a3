@@ -13,8 +13,10 @@ namespace Faria_Marcus_a3
     internal class Player
     {
         public Texture2D Frog = Graphics.LoadTexture("../../../../Assets/Graphics/Frog.png");
+        public Music FunSun = Audio.LoadMusic("../../../../Assets/Audio/FunInTheSun.MP3");
+        public Music Victor = Audio.LoadMusic("../../../../Assets/Audio/Victor.MP3");
         public Vector2 playerPosition = new Vector2();
-        public float playerSpeed = 150;
+        public float playerSpeed = 100;
         public Vector2 playerSize = new Vector2(40,40);
         //public Rectangle playerSize = new Rectangle(0, 0, 40, 40);
         public Vector2 velocity;
@@ -107,6 +109,8 @@ namespace Faria_Marcus_a3
             Warp();
             time = new Timer();
             time.update();
+
+            Audio.Play(FunSun);
         }
 
             // Player Movement
@@ -306,6 +310,9 @@ namespace Faria_Marcus_a3
         public void Winner()
         {
             Window.ClearBackground(Color.Yellow);
+
+            Audio.Pause(FunSun);
+            Audio.Play(Victor);
 
             Text.Draw("Congratulations!!", 50, 100);
             Text.Draw($"Final Time: ", 50, 200);
