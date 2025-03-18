@@ -23,12 +23,7 @@ namespace Faria_Marcus_a3
 
             if (player.isWinner)
             {
-                secondsElapsed += Time.DeltaTime;
-                Console.WriteLine("YES YES YES");
-            }
-            else
-            {
-                player.PlayGame();
+                secondsElapsed = Time.DeltaTime;
             }
         }
 
